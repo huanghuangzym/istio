@@ -582,11 +582,11 @@ func (ps *PushContext) SetDestinationRules(configs []Config) {
 							subset.Name, string(resolvedHost)))
 				}
 
-				// If there is no top level policy and the incoming rule has top level
-				// traffic policy, use the one from the incoming rule.
-				if combinedRule.TrafficPolicy == nil && rule.TrafficPolicy != nil {
-					combinedRule.TrafficPolicy = rule.TrafficPolicy
-				}
+			}
+			// If there is no top level policy and the incoming rule has top level
+			// traffic policy, use the one from the incoming rule.
+			if combinedRule.TrafficPolicy == nil && rule.TrafficPolicy != nil {
+				combinedRule.TrafficPolicy = rule.TrafficPolicy
 			}
 			continue
 		}
